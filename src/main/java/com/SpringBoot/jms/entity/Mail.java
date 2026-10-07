@@ -23,7 +23,7 @@ public class Mail {
     private String id;
 
     @Indexed
-    private String userId;
+    private List<String> userIds;
 
     private String subject;
 
@@ -32,6 +32,8 @@ public class Mail {
     private List<Attachment> attachments = new ArrayList<>();
 
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    private boolean delivered=false;
 
     @Getter
     @Setter

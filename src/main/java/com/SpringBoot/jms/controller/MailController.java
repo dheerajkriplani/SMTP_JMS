@@ -24,9 +24,9 @@ public class MailController {
     private MailService mailService;
 
     @PostMapping(value = "/send", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public String sendMail(@ModelAttribute MailDto mailDto, @RequestParam String name, @RequestParam String emailId, @RequestParam(value = "files", required = false) List<MultipartFile> files) throws IOException {
-        Boolean isSent=mailService.sendMailToUser(mailDto, name, emailId, files);
-        return isSent?"Mail sent to " + emailId:"Failed to send mail to " + emailId;
+    public String sendMail(@ModelAttribute MailDto mailDto,@RequestParam List<String> userIds, @RequestParam(value = "files", required = false) List<MultipartFile> files) throws IOException {
+        Boolean isSent=mailService.sendMailToUsers(mailDto, userIds, files);
+        return isSent?"Mail sent >>>>>>>>>>>>>>>>>>>> ":"Failed to send mail to ";
     }
 
 }

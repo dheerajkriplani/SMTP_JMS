@@ -25,4 +25,7 @@ public class UserService {
         log.info("Creating user {}", user);
         return userRepository.save(user);
     }
+    public User getUserById(String userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
 }

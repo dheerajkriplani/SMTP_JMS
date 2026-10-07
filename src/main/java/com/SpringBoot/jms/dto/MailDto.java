@@ -15,4 +15,7 @@ public class MailDto {
     private String subject;
 
     private String content;
+
+    private Boolean html;
+
 }
